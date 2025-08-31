@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://c70wcxhcpm4h8"]
+
+[ext_resource type="Script" uid="uid://blcbkqk7lr25" path="res://Scripts/Player/Elements/elements.gd" id="1_ebs16"]
+[ext_resource type="Script" uid="uid://cnms6752c6rvt" path="res://Scripts/Player/Elements/none.gd" id="2_ql4j4"]
+[ext_resource type="Script" uid="uid://wgwlp8wuyyi3" path="res://Scripts/Player/Elements/fire.gd" id="3_4fsbx"]
+[ext_resource type="Script" uid="uid://bh6kyatytrqo" path="res://Scripts/Player/Elements/water.gd" id="4_7ndqd"]
+[ext_resource type="Script" uid="uid://xhtqufd52dnv" path="res://Scripts/Player/Elements/wind.gd" id="5_rr5f1"]
+[ext_resource type="Script" uid="uid://utbyuumge70y" path="res://Scripts/Player/Elements/earth.gd" id="6_1j2s4"]
+
+[node name="Elements" type="Node2D"]
+script = ExtResource("1_ebs16")
+
+[node name="None" type="Node2D" parent="."]
+script = ExtResource("2_ql4j4")
+
+[node name="Fire" type="Node2D" parent="."]
+script = ExtResource("3_4fsbx")
+
+[node name="Water" type="Node2D" parent="."]
+script = ExtResource("4_7ndqd")
+
+[node name="Wind" type="Node2D" parent="."]
+script = ExtResource("5_rr5f1")
+
+[node name="Earth" type="Node2D" parent="."]
+script = ExtResource("6_1j2s4")
