@@ -71,5 +71,5 @@ func get_attack_direction(player) -> Vector2:
 
 	return dir
 
-func enemy_hit(player, enemy):
-	enemy.take_damage(1)
+func enemy_hit(player, enemy, side):
+	enemy.take_damage(1, side)

@@ -37,6 +37,7 @@ sources/0 = SubResource("TileSetAtlasSource_6l7je")
 script = ExtResource("1_iacmt")
 
 [node name="Player" parent="." instance=ExtResource("4_x6ack")]
+unique_name_in_owner = true
 
 [node name="BaseEnemy" parent="." instance=ExtResource("6_6ev3c")]
 position = Vector2(398, 299)

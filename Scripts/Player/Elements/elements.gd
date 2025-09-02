@@ -59,4 +59,9 @@ func switch_to(next_element):
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		get_active_element().enemy_hit(get_parent(), body)
+		var side
+		if get_parent().global_position > body.global_position:
+			side = -1
+		else: 
+			side = 1
+		get_active_element().enemy_hit(get_parent(), body, side)
