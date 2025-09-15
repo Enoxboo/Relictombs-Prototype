@@ -1,8 +1,9 @@
 extends Enemy
 
-const PROJECTILE = preload("res://Scenes/projectile.tscn")
 var projectile_speed = 200
 var projectile_time = 500
+const PROJECTILE = preload("res://Scenes/projectile.tscn")
+const FIREBALL = preload("res://Sprites/Fireball.png")
 
 func _ready() -> void:
 	super._ready()
@@ -24,6 +25,7 @@ func attack_state() -> void:
 		projectile_instance.time = projectile_time
 		projectile_instance.collision_layer = 2
 		projectile_instance.collision_mask = 8
+		projectile_instance.sprite_texture = FIREBALL
 		
 		get_tree().current_scene.add_child(projectile_instance)
 		

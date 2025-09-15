@@ -1,8 +1,15 @@
 extends Area2D
 
+@onready var sprite: Sprite2D = $Sprite2D
+
+var sprite_texture: Texture2D
 var direction: Vector2
 var speed: int
 var time: int
+
+func _ready():
+	if sprite_texture:
+		sprite.texture = sprite_texture
 
 func _process(delta):
 	position += direction * speed * delta
