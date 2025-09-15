@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=4 uid="uid://dsinvnicbplgj"]
 
-[ext_resource type="Texture2D" uid="uid://bib5iebf6qbyw" path="res://Sprites/Map/scene.png" id="1_50ct6"]
-[ext_resource type="PackedScene" uid="uid://x7xsw31c1i1" path="res://Scenes/ui.tscn" id="3_50ct6"]
-[ext_resource type="PackedScene" uid="uid://25353ph5q621" path="res://Scenes/player.tscn" id="3_ak5v8"]
-[ext_resource type="PackedScene" uid="uid://ddp2hy2lrxgq1" path="res://Scenes/fire_mage.tscn" id="4_ak5v8"]
-[ext_resource type="PackedScene" uid="uid://cu1fhkvlsquug" path="res://Scenes/firecamp.tscn" id="5_x033f"]
+[ext_resource type="Texture2D" uid="uid://bib5iebf6qbyw" path="res://Sprites/Maps/scene.png" id="1_50ct6"]
+[ext_resource type="PackedScene" uid="uid://x7xsw31c1i1" path="res://Scenes/UI/ui.tscn" id="3_50ct6"]
+[ext_resource type="PackedScene" uid="uid://25353ph5q621" path="res://Scenes/Player/player.tscn" id="3_ak5v8"]
+[ext_resource type="PackedScene" uid="uid://ddp2hy2lrxgq1" path="res://Scenes/Enemies/fire_mage.tscn" id="4_ak5v8"]
+[ext_resource type="PackedScene" uid="uid://cu1fhkvlsquug" path="res://Scenes/Props/firecamp.tscn" id="5_x033f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x033f"]
 texture = ExtResource("1_50ct6")
