@@ -1,88 +1,105 @@
 extends Node2D
 
+# === SIGNALS ===
 signal element_changed(new_element)
-# Enums
-enum element { None, Fire, Water, Wind, Earth }
 
-# Variables
-var active_element: element
-var new_element: element
+# === ENUMS ===
+enum Element { None, Fire, Water, Wind, Earth }
 
-# Node references
+# === VARIABLES ===
+var active_element: Element
+var new_element: Element
+
+# === NODE REFERENCES ===
 @onready var none: Node2D = $None
 @onready var fire: Node2D = $Fire
 @onready var water: Node2D = $Water
 @onready var wind: Node2D = $Wind
 @onready var earth: Node2D = $Earth
 
-# Lifecycle methods
+# === INITIALIZATION ===
 func _ready() -> void:
-	active_element = element.None
+	active_element = Element.None
 	new_element = active_element
-	_disable_all_elements()
+	disable_all_elements()
 
+# === INPUT HANDLING ===
 func _input(_event: InputEvent) -> void:
-	_handle_element_switching()
-	_handle_attacks()
+	handle_element_switching()
+	handle_attacks()
+	handle_dash()
 
-# Input handling
-func _handle_element_switching() -> void:
+# === ELEMENT SWITCHING ===
+func handle_element_switching() -> void:
+	# Cycle to next element
 	if Input.is_action_just_pressed("switch_right"):
 		new_element += 1
-		if new_element == element.size():
-			new_element = element.Fire
+		if new_element == Element.size():
+			new_element = Element.Fire
 		switch_to(new_element)
 	
+	# Cycle to previous element
 	elif Input.is_action_just_pressed("switch_left"):
 		new_element -= 1
-		if new_element < element.Fire:
-			new_element = element.Earth
+		if new_element < Element.Fire:
+			new_element = Element.Earth
 		switch_to(new_element)
 	
+	# Reset to no element
 	elif Input.is_action_just_pressed("switch_reset"):
-		new_element = element.None
+		new_element = Element.None
 		switch_to(new_element)
 
-func _handle_attacks() -> void:
+# === HANDLERS ===
+func handle_attacks() -> void:
+	var current_element = get_active_element()
+	
 	if Input.is_action_just_pressed("attack"):
-		get_active_element().handle_attack(get_parent())
+		current_element.handle_attack(get_parent())
 	elif Input.is_action_just_pressed("special_attack"):
-		get_active_element().handle_special_attack(get_parent())
-	elif Input.is_action_just_pressed("dash"):
-		get_active_element().handle_dash(get_parent())
+		current_element.handle_special_attack(get_parent())
 
-# Element management
+func handle_dash() -> void:
+	var current_element = get_active_element()
+	if Input.is_action_just_pressed("dash"):
+		current_element.handle_dash(get_parent())
+
+# === ELEMENT MANAGEMENT ===
 func get_active_element() -> Node2D:
+	# Return the currently active element node
 	match active_element:
-		element.None:
+		Element.None:
 			return none
-		element.Fire:
+		Element.Fire:
 			return fire
-		element.Water:
+		Element.Water:
 			return water
-		element.Wind:
+		Element.Wind:
 			return wind
-		element.Earth:
+		Element.Earth:
 			return earth
 		_:
 			return none
 
-func switch_to(next_element: element) -> void:
+func switch_to(next_element: Element) -> void:
+	# Disable current element and switch to new one
 	get_active_element().process_mode = Node.PROCESS_MODE_DISABLED
 	active_element = next_element
 	emit_signal("element_changed", active_element)
 	get_active_element().process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _disable_all_elements() -> void:
+func disable_all_elements() -> void:
+	# Disable all elemental abilities
 	fire.process_mode = Node.PROCESS_MODE_DISABLED
 	water.process_mode = Node.PROCESS_MODE_DISABLED
 	wind.process_mode = Node.PROCESS_MODE_DISABLED
 	earth.process_mode = Node.PROCESS_MODE_DISABLED
 
-# Signal handlers
+# === SIGNAL HANDLERS ===
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemy"):
 		return
 	
+	# Determine which side the enemy was hit from
 	var side = -1 if get_parent().global_position > body.global_position else 1
 	get_active_element().enemy_hit(body, side)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu1fhkvlsquug"]
 
-[ext_resource type="Script" uid="uid://dibjirck6c1wv" path="res://Scripts/firecamp.gd" id="1_3pxqa"]
+[ext_resource type="Script" uid="uid://dibjirck6c1wv" path="res://Scripts/Props/firecamp.gd" id="1_3pxqa"]
 [ext_resource type="Texture2D" uid="uid://bhedru6ubfdrv" path="res://Sprites/Player/square.png" id="2_obicv"]
-[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Ressources/Minecraft.ttf" id="3_ykdul"]
+[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Ressources/font.ttf" id="3_ykdul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvfm2"]
 size = Vector2(16, 16)

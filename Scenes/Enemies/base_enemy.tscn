@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pg1j7mljto3w" path="res://Scripts/Enemies/base_enemy.gd" id="1_kjpuc"]
 [ext_resource type="Texture2D" uid="uid://blq1wlfwg5tlr" path="res://Sprites/Enemies/triangle.png" id="1_wsate"]
-[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Ressources/Minecraft.ttf" id="3_t2m80"]
+[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Ressources/font.ttf" id="3_t2m80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjpuc"]
 size = Vector2(16, 16)

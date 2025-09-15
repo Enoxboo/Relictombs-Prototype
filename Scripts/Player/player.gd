@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-# Constants
+# === CONSTANTS ===
 const BASE_HITBOX_POS: Vector2 = Vector2(0.0, -8.0)
 
-# Variables
+# === VARIABLES ===
 @export var speed: int = 225
 @export var jump_force: int = -305
 @export var max_health: int = 10
@@ -15,7 +15,7 @@ var can_dash: bool = true
 var is_invulnerable: bool = false
 var is_dashing: bool = false
 
-# Node references
+# === NODE REFERENCES ===
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
@@ -23,20 +23,21 @@ var is_dashing: bool = false
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var elements: Node2D = $Elements
 
-# Lifecycle methods
+# === INITIALIZATION ===
 func _ready() -> void:
 	health = max_health
 	hitbox.monitoring = false
 	hitbox_sprite.visible = false
 
+# === MAIN PHYSICS LOOP ===
 func _physics_process(delta: float) -> void:
 	Utils.apply_gravity(self, delta)
-	move()
-	jump()
+	handle_movement()
+	handle_jump()
 	move_and_slide()
 
-# Movement
-func move() -> void:
+# === MOVEMENT SYSTEM ===
+func handle_movement() -> void:
 	if is_dashing:
 		return
 	
@@ -48,24 +49,28 @@ func move() -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
-func jump() -> void:
+func handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
 
-# Combat
+# === COMBAT SYSTEM ===
 func take_damage(damage: int) -> void:
+	# Ignore damage during invulnerability frames
 	if is_invulnerable:
 		return
 		
+	# Apply damage and start invulnerability
 	health -= damage
 	is_invulnerable = true
-	# Effet visuel
+	
+	# Create flashing visual effect
 	var tween = create_tween()
-	tween.set_loops(int(2 * 4))
+	tween.set_loops(int(2 * 4))  # Flash 4 times
 	tween.tween_property(sprite, "modulate:a", 0.3, 0.06)
 	tween.tween_property(sprite, "modulate:a", 1.0, 0.06)
 	tween.tween_callback(func(): sprite.modulate.a = 1.0)
 	
+	# Wait for invulnerability to end
 	await Utils.wait_frames(100)
 	is_invulnerable = false
 
