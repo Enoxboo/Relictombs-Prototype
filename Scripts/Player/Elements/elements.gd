@@ -48,6 +48,8 @@ func _handle_attacks() -> void:
 		get_active_element().handle_attack(get_parent())
 	elif Input.is_action_just_pressed("special_attack"):
 		get_active_element().handle_special_attack(get_parent())
+	elif Input.is_action_just_pressed("dash"):
+		get_active_element().handle_dash(get_parent())
 
 # Element management
 func get_active_element() -> Node2D:

@@ -26,6 +26,23 @@ func handle_attack(player: CharacterBody2D) -> void:
 func handle_special_attack(player: CharacterBody2D) -> void:
 	pass
 
+func handle_dash(player: CharacterBody2D) -> void:
+	if not player.can_dash:
+		return
+	
+	player.can_dash = false
+	player.is_dashing = true 
+	
+	player.velocity.x = player.dash_force * player.last_direction
+	
+	await Utils.wait_frames(10)
+	
+	player.is_dashing = false
+	player.velocity.x *= 0.3
+	
+	await Utils.wait_frames(54)
+	player.can_dash = true
+
 # Attack system
 func attack(player: CharacterBody2D, pos: Vector2, startup: int, active: int, recovery: int, angle: float) -> void:
 	if not player.can_attack:

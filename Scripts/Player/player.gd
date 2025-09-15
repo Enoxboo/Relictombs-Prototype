@@ -7,10 +7,13 @@ const BASE_HITBOX_POS: Vector2 = Vector2(0.0, -8.0)
 @export var speed: int = 225
 @export var jump_force: int = -305
 @export var max_health: int = 10
+@export var dash_force: int = 500
 var health: int
 var last_direction: float = 1.0
 var can_attack: bool = true
+var can_dash: bool = true
 var is_invulnerable: bool = false
+var is_dashing: bool = false
 
 # Node references
 @onready var sprite: Sprite2D = $Sprite2D
@@ -34,6 +37,9 @@ func _physics_process(delta: float) -> void:
 
 # Movement
 func move() -> void:
+	if is_dashing:
+		return
+	
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	if direction:
