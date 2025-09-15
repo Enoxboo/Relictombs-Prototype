@@ -45,7 +45,6 @@ func move() -> void:
 func jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-		take_damage(9)
 
 # Combat
 func take_damage(damage: int) -> void:
