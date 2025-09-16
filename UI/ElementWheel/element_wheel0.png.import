@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq7cgit3lpw6k"
-path="res://.godot/imported/ElementWheel.png-39b1bbf2ff1db477d9f39f80fab3b6b2.ctex"
+uid="uid://y4dgm301a8us"
+path="res://.godot/imported/element_wheel0.png-9c73b6d27ea14cfea0ee3d642655bab7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/ElementWheel/ElementWheel.png"
-dest_files=["res://.godot/imported/ElementWheel.png-39b1bbf2ff1db477d9f39f80fab3b6b2.ctex"]
+source_file="res://UI/ElementWheel/element_wheel0.png"
+dest_files=["res://.godot/imported/element_wheel0.png-9c73b6d27ea14cfea0ee3d642655bab7.ctex"]
 
 [params]
 

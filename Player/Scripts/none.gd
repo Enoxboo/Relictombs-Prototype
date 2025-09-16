@@ -17,7 +17,7 @@ const ANGLE_UP: int = -90
 const ANGLE_DOWN: int = 90
 
 # === VISUAL RESOURCES ===
-const SWORD_SLASH = preload("res://Sprites/Player/Weapons/sword_slash.png")
+const SWORD_SLASH = preload("res://Player/_Sprites/sword_slash.png")
 
 # === ATTACK HANDLING ===
 func handle_attack(player: CharacterBody2D) -> void:

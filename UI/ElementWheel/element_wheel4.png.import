@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7rtckkhgv6e"
-path="res://.godot/imported/TextureProgress.png-9ccfab0a14e2f5ada718fb2f1ac936f3.ctex"
+uid="uid://dyq74nnihnouv"
+path="res://.godot/imported/element_wheel4.png-6eeffec46740a94caca891e5851ccf58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/HpBar/TextureProgress.png"
-dest_files=["res://.godot/imported/TextureProgress.png-9ccfab0a14e2f5ada718fb2f1ac936f3.ctex"]
+source_file="res://UI/ElementWheel/element_wheel4.png"
+dest_files=["res://.godot/imported/element_wheel4.png-6eeffec46740a94caca891e5851ccf58.ctex"]
 
 [params]
 

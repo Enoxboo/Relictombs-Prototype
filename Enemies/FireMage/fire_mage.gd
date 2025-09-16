@@ -8,8 +8,8 @@ const PROJECTILE_LAYER: int = 2
 const PROJECTILE_MASK: int = 8
 
 # === PRELOADED RESOURCES ===
-const PROJECTILE = preload("res://Scenes/Spells/projectile.tscn")
-const FIREBALL = preload("res://Sprites/Spells/Fireball.png")
+const PROJECTILE = preload("res://Spells/projectile.tscn")
+const FIREBALL = preload("res://Spells/_Sprites/Fireball.png")
 
 # === INITIALIZATION ===
 func _ready() -> void:

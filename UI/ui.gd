@@ -7,11 +7,11 @@ extends CanvasLayer
 
 # === ELEMENT WHEEL TEXTURES ===
 var element_textures = {
-	0: preload("res://Sprites/UI/ElementWheel/ElementWheel0.png"),
-	1: preload("res://Sprites/UI/ElementWheel/ElementWheel1.png"),
-	2: preload("res://Sprites/UI/ElementWheel/ElementWheel2.png"),
-	3: preload("res://Sprites/UI/ElementWheel/ElementWheel3.png"),
-	4: preload("res://Sprites/UI/ElementWheel/ElementWheel4.png")
+	0: preload("res://UI/ElementWheel/element_wheel0.png"),
+	1: preload("res://UI/ElementWheel/element_wheel1.png"),
+	2: preload("res://UI/ElementWheel/element_wheel2.png"),
+	3: preload("res://UI/ElementWheel/element_wheel3.png"),
+	4: preload("res://UI/ElementWheel/element_wheel4.png")
 }
 
 # === INITIALIZATION ===
