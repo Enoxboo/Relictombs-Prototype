@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Enemy
 
+# === CONSTANTS ===
+
+
 # === VARIABLES ===
 @export var max_health: int = 3
 var health: int

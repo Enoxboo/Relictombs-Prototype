@@ -1,13 +1,20 @@
 extends Node2D
 class_name PlayerAttack
 
-# === ATTACK POSITION CONSTANTS ===
+# === CONSTANTS ===
 const BASE_ATTACK_POS_R: Vector2 = Vector2(20, -8)    # Right attack
 const BASE_ATTACK_POS_L: Vector2 = Vector2(-20, -8)   # Left attack
 const BASE_ATTACK_POS_U: Vector2 = Vector2(0, -20)    # Up attack
 const BASE_ATTACK_POS_D: Vector2 = Vector2(0, 20)     # Down attack
 const SPE_ATTACK_POS: Vector2 = Vector2(10.0, -8.0)   # Special attack right
 const SPE_ATTACK_POS_L: Vector2 = Vector2(-10.0, -8.0) # Special attack left
+const STARTUP: int = 4
+const ACTIVE: int = 8
+const RECOVERY: int = 20
+const ANGLE_RIGHT: int = 0
+const ANGLE_LEFT: int = 180
+const ANGLE_UP: int = -90
+const ANGLE_DOWN: int = 90
 
 # === VISUAL RESOURCES ===
 const SWORD_SLASH = preload("res://Sprites/Player/Weapons/sword_slash.png")
@@ -18,13 +25,13 @@ func handle_attack(player: CharacterBody2D) -> void:
 	var direction = get_attack_direction(player)
 	
 	if direction.x > 0:      # Right
-		attack(player, BASE_ATTACK_POS_R, 4, 8, 20, 0)
+		attack(player, BASE_ATTACK_POS_R, STARTUP, ACTIVE, RECOVERY, ANGLE_RIGHT)
 	elif direction.x < 0:    # Left
-		attack(player, BASE_ATTACK_POS_L, 4, 8, 20, 180)
+		attack(player, BASE_ATTACK_POS_L, STARTUP, ACTIVE, RECOVERY, ANGLE_LEFT)
 	elif direction.y < 0:    # Up
-		attack(player, BASE_ATTACK_POS_U, 4, 8, 20, -90)
+		attack(player, BASE_ATTACK_POS_U, STARTUP, ACTIVE, RECOVERY, ANGLE_UP)
 	elif direction.y > 0:    # Down
-		attack(player, BASE_ATTACK_POS_D, 4, 8, 20, 90)
+		attack(player, BASE_ATTACK_POS_D, STARTUP, ACTIVE, RECOVERY, ANGLE_DOWN)
 
 func handle_special_attack(_player: CharacterBody2D) -> void:
 	# Not implemented yet

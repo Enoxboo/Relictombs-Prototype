@@ -1,5 +1,9 @@
 extends PlayerAttack
 
+# === CONSTANTS ===
+const SLOW_STRENGHT: int = 50
+const SLOW_DURATION: int = 2
+
 func handle_attack(player: CharacterBody2D) -> void:
 	# Execute base attack with water visual effect
 	super.handle_attack(player)

@@ -1,8 +1,11 @@
 extends Enemy
 
 # === RANGED ATTACK PROPERTIES ===
-var projectile_speed: int = 200
-var projectile_time: int = 500
+const PROJECTILE_SPEED: int = 200
+const PROJECTILE_TIME: int = 500
+const OFFSET: Vector2 = Vector2(0, -8.0)
+const PROJECTILE_LAYER: int = 2
+const PROJECTILE_MASK: int = 8
 
 # === PRELOADED RESOURCES ===
 const PROJECTILE = preload("res://Scenes/Spells/projectile.tscn")
@@ -33,12 +36,12 @@ func shoot_projectile() -> void:
 	
 	# Create and configure projectile
 	var projectile_instance = PROJECTILE.instantiate()
-	projectile_instance.speed = projectile_speed if distance_x < 0 else -projectile_speed
+	projectile_instance.speed = PROJECTILE_SPEED if distance_x < 0 else -PROJECTILE_SPEED
 	projectile_instance.direction = Vector2(1, 0)
-	projectile_instance.global_position = global_position + Vector2(0, -8.0)
-	projectile_instance.time = projectile_time
-	projectile_instance.collision_layer = 2
-	projectile_instance.collision_mask = 8
+	projectile_instance.global_position = global_position + OFFSET
+	projectile_instance.time = PROJECTILE_TIME
+	projectile_instance.collision_layer = PROJECTILE_LAYER
+	projectile_instance.collision_mask = PROJECTILE_MASK
 	projectile_instance.sprite_texture = FIREBALL
 	
 	# Add projectile to scene

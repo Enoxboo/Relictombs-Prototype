@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 # === CONSTANTS ===
 const BASE_HITBOX_POS: Vector2 = Vector2(0.0, -8.0)
+const INVINCIBLE_ALPHA: float = 0.3
+const BASE_ALPHA: float = 1.0
+const TOTAL_FLASHES: int = 8
+const FLASH_DURATION: float = 0.06
+const INVULNERABILITY_DURATION: int = 100
 
 # === VARIABLES ===
 @export var speed: int = 225
@@ -65,13 +70,13 @@ func take_damage(damage: int) -> void:
 	
 	# Create flashing visual effect
 	var tween = create_tween()
-	tween.set_loops(int(2 * 4))  # Flash 4 times
-	tween.tween_property(sprite, "modulate:a", 0.3, 0.06)
-	tween.tween_property(sprite, "modulate:a", 1.0, 0.06)
-	tween.tween_callback(func(): sprite.modulate.a = 1.0)
+	tween.set_loops(TOTAL_FLASHES)
+	tween.tween_property(sprite, "modulate:a", INVINCIBLE_ALPHA, FLASH_DURATION)
+	tween.tween_property(sprite, "modulate:a", BASE_ALPHA, FLASH_DURATION)
+	tween.tween_callback(func(): sprite.modulate.a = BASE_ALPHA)
 	
 	# Wait for invulnerability to end
-	await Utils.wait_frames(100)
+	await Utils.wait_frames(INVULNERABILITY_DURATION)
 	is_invulnerable = false
 
 func heal(heal_amount: int) -> void:
