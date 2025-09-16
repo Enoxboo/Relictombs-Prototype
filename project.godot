@@ -16,28 +16,18 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
 
-Utils="*res://Scripts/Other/utils.gd"
+Utils="*res://Others/Scripts/utils.gd"
 
 [file_customization]
 
 folder_colors={
-"res://Scenes/Enemies/": "red",
-"res://Scenes/Maps/": "yellow",
-"res://Scenes/Player/": "purple",
-"res://Scenes/Props/": "green",
-"res://Scenes/Spells/": "blue",
-"res://Scenes/UI/": "pink",
-"res://Scripts/Enemies/": "red",
-"res://Scripts/Other/": "gray",
-"res://Scripts/Player/": "purple",
-"res://Scripts/Props/": "green",
-"res://Scripts/Spells/": "blue",
-"res://Scripts/UI/": "pink",
-"res://Sprites/Enemies/": "red",
-"res://Sprites/Maps/": "yellow",
-"res://Sprites/Player/": "purple",
-"res://Sprites/Spells/": "blue",
-"res://Sprites/UI/": "pink"
+"res://Enemies/": "red",
+"res://Maps/": "yellow",
+"res://Others/": "gray",
+"res://Player/": "purple",
+"res://Props/": "green",
+"res://Spells/": "blue",
+"res://UI/": "pink"
 }
 
 [global_group]

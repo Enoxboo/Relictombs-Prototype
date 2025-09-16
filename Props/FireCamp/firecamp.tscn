@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu1fhkvlsquug"]
+
+[ext_resource type="Script" uid="uid://dibjirck6c1wv" path="res://Props/FireCamp/firecamp.gd" id="1_3pxqa"]
+[ext_resource type="Texture2D" uid="uid://bhedru6ubfdrv" path="res://Player/_Sprites/square.png" id="2_obicv"]
+[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Others/Fonts/font.ttf" id="3_ykdul"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvfm2"]
+size = Vector2(16, 16)
+
+[node name="Firecamp" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_3pxqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_obicv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_vvfm2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -56.0
+offset_right = 20.0
+offset_bottom = -33.0
+theme_override_fonts/font = ExtResource("3_ykdul")
+theme_override_font_sizes/font_size = 16
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

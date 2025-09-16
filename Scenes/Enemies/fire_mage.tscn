@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddp2hy2lrxgq1"]
-
-[ext_resource type="PackedScene" uid="uid://cxghgsof7lavd" path="res://Scenes/Enemies/base_enemy.tscn" id="1_jo5b3"]
-[ext_resource type="Script" uid="uid://df577qnqvasyk" path="res://Scripts/Enemies/fire_mage.gd" id="2_gdcd5"]
-
-[node name="FireMage" instance=ExtResource("1_jo5b3")]
-script = ExtResource("2_gdcd5")
-max_health = 3

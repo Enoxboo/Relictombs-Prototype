@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxghgsof7lavd"]
+
+[ext_resource type="Script" uid="uid://pg1j7mljto3w" path="res://Enemies/BaseEnemy/base_enemy.gd" id="1_kjpuc"]
+[ext_resource type="Texture2D" uid="uid://blq1wlfwg5tlr" path="res://Enemies/FireMage/triangle.png" id="1_wsate"]
+[ext_resource type="FontFile" uid="uid://b3ahk02lc4kvy" path="res://Others/Fonts/font.ttf" id="3_t2m80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjpuc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2m80"]
+size = Vector2(14, 14)
+
+[node name="BaseEnemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_kjpuc")
+max_health = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_wsate")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_kjpuc")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_t2m80")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="HitboxSprite" type="Sprite2D" parent="Hitbox"]
+
+[node name="HPLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("3_t2m80")
+theme_override_font_sizes/font_size = 16
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1
