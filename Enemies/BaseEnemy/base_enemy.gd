@@ -19,6 +19,8 @@ var is_being_knocked_back: bool = false
 var knockback_strength: int = 300
 var hitstun_time: int = 25
 var can_attack: bool = true
+var is_burned: bool = false
+var burn_time_left: int = 0
 
 # === AI BEHAVIOR VARIABLES ===
 var distance_x: float = 0.0
@@ -128,17 +130,28 @@ func apply_knockback(side: int) -> void:
 	is_being_knocked_back = false
 
 func apply_burn(damage: int, time: int) -> void:
-	# Apply burn effect over time
-	for n in time:
+	if is_burned:
+		burn_time_left = time
+		return
+	
+	is_burned = true
+	burn_time_left = time
+	_process_burn(damage)
+
+func _process_burn(damage: int) -> void:
+	while burn_time_left > 0:
+		burn_time_left -= 1
+		
 		await Utils.wait_frames(50)
 		sprite.modulate = Color("RED")
 		await Utils.wait_frames(4)
-		take_damage(damage, 0)  # Burn damage doesn't cause knockback
+		take_damage(damage, 0)
 		await Utils.wait_frames(10)
 		sprite.modulate = Color("WHITE")
+	
+	is_burned = false
 
 func apply_slow(modifier: int, time: int) -> void:
-	# Apply temporary speed reduction
 	for n in time:
 		var initial_speed = speed
 		speed *= modifier / 100.0

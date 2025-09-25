@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 # === CONSTANTS ===
 const BASE_HITBOX_POS: Vector2 = Vector2(0.0, -8.0)

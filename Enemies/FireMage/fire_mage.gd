@@ -14,8 +14,6 @@ const FIREBALL = preload("res://Spells/_Sprites/Fireball.png")
 # === INITIALIZATION ===
 func _ready() -> void:
 	super._ready()
-	
-	# Configure ranged enemy specific stats
 	speed = 100
 	chase_distance = 300
 	attack_distance = 180

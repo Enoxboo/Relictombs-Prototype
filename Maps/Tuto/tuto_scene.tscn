@@ -53,7 +53,6 @@ limit_bottom = 1000
 
 [node name="FireMage" parent="." instance=ExtResource("4_ak5v8")]
 position = Vector2(382, 0)
-max_health = 5
 
 [node name="Firecamp" parent="." instance=ExtResource("5_x033f")]
 position = Vector2(613, -48)

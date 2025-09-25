@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://64ajwqvhfve6"]
+
+[ext_resource type="Script" uid="uid://del4rgwd0y230" path="res://Spells/fire_particule.gd" id="1_tutn8"]
+[ext_resource type="Texture2D" uid="uid://btagybtsyr18e" path="res://Spells/_Sprites/FireParticules/fire_particule0.png" id="2_y6ssw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6ssw"]
+
+[node name="FireParticule" type="Node2D"]
+script = ExtResource("1_tutn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y6ssw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_y6ssw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

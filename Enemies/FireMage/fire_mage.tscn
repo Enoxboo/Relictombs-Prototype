@@ -5,4 +5,3 @@
 
 [node name="FireMage" instance=ExtResource("1_pskt6")]
 script = ExtResource("2_562sy")
-max_health = 3
