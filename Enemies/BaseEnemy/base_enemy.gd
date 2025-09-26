@@ -21,6 +21,7 @@ var hitstun_time: int = 25
 var can_attack: bool = true
 var is_burned: bool = false
 var burn_time_left: int = 0
+var is_slow: bool = false
 
 # === AI BEHAVIOR VARIABLES ===
 var distance_x: float = 0.0
@@ -152,11 +153,18 @@ func _process_burn(damage: int) -> void:
 	is_burned = false
 
 func apply_slow(modifier: int, time: int) -> void:
+	if is_slow:
+		return
+		
+	is_slow = true
+	sprite.modulate = Color(0.0, 0.0, 1.0, 1.0)
 	for n in time:
 		var initial_speed = speed
 		speed *= modifier / 100.0
 		await Utils.wait_frames(64)
 		speed = initial_speed
+	is_slow = false
+	sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 # === UI UPDATES ===
 func update_hp_display() -> void:

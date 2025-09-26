@@ -15,8 +15,8 @@ const FIREBALL = preload("res://Spells/_Sprites/Fireball.png")
 func _ready() -> void:
 	super._ready()
 	speed = 100
-	chase_distance = 300
-	attack_distance = 180
+	chase_distance = 500
+	attack_distance = 1
 
 # === OVERRIDDEN ATTACK BEHAVIOR ===
 func attack_state() -> void:

@@ -10,7 +10,7 @@ func _ready() -> void:
 		sprite.texture = pending_texture
 
 func _process(delta: float) -> void:
-	position.y -= speed * delta
+	position.y += speed * delta
 	sprite.modulate.a = move_toward(sprite.modulate.a, 0, time * delta)
 
 func set_texture(texture: Texture2D) -> void:
@@ -20,8 +20,8 @@ func set_texture(texture: Texture2D) -> void:
 		pending_texture = texture
 
 func _on_area_body_entered(body: Node2D) -> void:
-	if body.has_method("apply_burn"):
-		body.apply_burn(1, 1)
+	if body.has_method("apply_slow"):
+		body.apply_slow(50, 2)
 
 func _on_timer_timeout() -> void:
 	queue_free()
