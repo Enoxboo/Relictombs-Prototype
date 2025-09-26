@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://ywc3g1b3pcle"]
+[gd_scene load_steps=8 format=4 uid="uid://ywc3g1b3pcle"]
 
 [ext_resource type="PackedScene" uid="uid://25353ph5q621" path="res://Player/Scenes/player.tscn" id="1_88fxn"]
 [ext_resource type="Texture2D" uid="uid://bib5iebf6qbyw" path="res://Maps/_Sprites/scene.png" id="2_2vbdr"]
 [ext_resource type="PackedScene" uid="uid://cu1fhkvlsquug" path="res://Props/FireCamp/firecamp.tscn" id="3_tkblf"]
 [ext_resource type="PackedScene" uid="uid://x7xsw31c1i1" path="res://UI/ui.tscn" id="4_7y0om"]
+[ext_resource type="PackedScene" uid="uid://wegu0k3ictub" path="res://UI/AugmentSelector/augment_choice.tscn" id="5_2vbdr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6ack"]
 texture = ExtResource("2_2vbdr")
@@ -49,3 +50,5 @@ position_smoothing_enabled = true
 position = Vector2(234, 298)
 
 [node name="UI" parent="." instance=ExtResource("4_7y0om")]
+
+[node name="Augment" parent="UI" instance=ExtResource("5_2vbdr")]

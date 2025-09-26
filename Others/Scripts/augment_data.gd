@@ -21,6 +21,10 @@ func get_all_augments_in_folder(path: String) -> Array[Augment]:
 	
 	return augments
 
+func get_random_augment() -> Augment:
+	var augments = get_all_augments_in_folder(AUGMENT_FOLDER)
+	return augments[randi_range(0, augments.size() - 1)]
+
 func get_random_augments(count: int) -> Array[Augment]:
 	available_augments.shuffle()
 	return available_augments.slice(0, count)

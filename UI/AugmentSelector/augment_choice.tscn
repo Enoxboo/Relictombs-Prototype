@@ -20,3 +20,5 @@ theme_override_fonts/font = ExtResource("2_gwiqu")
 theme_override_font_sizes/font_size = 16
 text = "Nom :
 Description:"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -9,6 +9,13 @@ enum Element { None, Fire, Water, Wind, Earth }
 # === VARIABLES ===
 var active_element: Element
 var new_element: Element
+var player_augments: Dictionary = {
+	Element.None: null,
+	Element.Fire: null,
+	Element.Water: null,
+	Element.Wind: null,
+	Element.Earth: null
+}
 
 # === NODE REFERENCES ===
 @onready var none: Node2D = $None
@@ -56,8 +63,8 @@ func handle_attacks() -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		current_element.handle_attack(get_parent())
-	elif Input.is_action_just_pressed("special_attack"):
-		current_element.handle_special_attack(get_parent())
+	elif Input.is_action_just_pressed("special_attack") and player_augments[active_element]:
+		current_element.handle_special_attack(get_parent(), player_augments[active_element])
 
 func handle_dash() -> void:
 	var current_element = get_active_element()
@@ -94,6 +101,9 @@ func disable_all_elements() -> void:
 	water.process_mode = Node.PROCESS_MODE_DISABLED
 	wind.process_mode = Node.PROCESS_MODE_DISABLED
 	earth.process_mode = Node.PROCESS_MODE_DISABLED
+
+func add_augment(element: Element, augment: Augment):
+	player_augments[element] = augment
 
 # === SIGNAL HANDLERS ===
 func _on_hitbox_body_entered(body: Node2D) -> void:

@@ -15,6 +15,7 @@ const ANGLE_RIGHT: int = 0
 const ANGLE_LEFT: int = 180
 const ANGLE_UP: int = -90
 const ANGLE_DOWN: int = 90
+const OFFSET: Vector2 = Vector2(0, -8)
 
 # === VISUAL RESOURCES ===
 const SWORD_SLASH = preload("res://Player/_Sprites/sword_slash.png")
@@ -33,10 +34,11 @@ func handle_attack(player: CharacterBody2D) -> void:
 	elif direction.y > 0:    # Down
 		attack(player, BASE_ATTACK_POS_D, STARTUP, ACTIVE, RECOVERY, ANGLE_DOWN)
 
-func handle_special_attack(_player: CharacterBody2D) -> void:
-	# Not implemented yet
-	pass
-
+func handle_special_attack(_player: CharacterBody2D, augment: Resource) -> void:
+	var instance = augment.scene_reference.instantiate()
+	instance.global_position = global_position + OFFSET
+	get_tree().current_scene.add_child(instance)
+	
 func handle_dash(player: CharacterBody2D) -> void:
 	# Don't dash if on cooldown
 	if not player.can_dash:

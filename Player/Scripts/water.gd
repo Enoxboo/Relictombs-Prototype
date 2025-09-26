@@ -4,7 +4,6 @@ extends PlayerAttack
 const SLOW_STRENGHT: int = 50
 const SLOW_DURATION: int = 2
 const WATER_PARTICULE = preload("uid://m52e1wlvdxcx")
-const OFFSET: Vector2 = Vector2(0, -8)
 
 var fire_textures = [
 	preload("uid://btagybtsyr18e"),
