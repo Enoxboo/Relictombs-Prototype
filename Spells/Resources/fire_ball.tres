@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Augment" load_steps=3 format=3 uid="uid://d3tvvsevahvna"]
+
+[ext_resource type="Script" uid="uid://cp7xdcn2fpfiq" path="res://Others/Scripts/augment.gd" id="1_bped0"]
+[ext_resource type="PackedScene" uid="uid://cfigi5yskyn7a" path="res://Spells/Augments/fire_ball.tscn" id="1_r1yki"]
+
+[resource]
+script = ExtResource("1_bped0")
+id = "fireball"
+augment_name = "Fire Ball"
+description = "Lance une boule de de feu"
+element = 1
+scene_reference = ExtResource("1_r1yki")
+metadata/_custom_type_script = "uid://cp7xdcn2fpfiq"

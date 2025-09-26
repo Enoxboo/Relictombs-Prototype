@@ -6,6 +6,9 @@ const BURN_DURATION: int = 2
 const OFFSET: Vector2 = Vector2(0, -8)
 const FIRE_PARTICULE = preload("uid://64ajwqvhfve6")
 
+# tests
+const FIRE_BALL = preload("uid://cfigi5yskyn7a")
+
 var fire_textures = [
 	preload("uid://btagybtsyr18e"),
 	preload("uid://b5ugmtiqllr47"),
@@ -33,7 +36,10 @@ func handle_dash(player: CharacterBody2D) -> void:
 			get_tree().current_scene.add_child(obj)
 		await Utils.wait_frames(3)
 
-
+func handle_special_attack(_player: CharacterBody2D) -> void:
+	var fire_ball = FIRE_BALL.instantiate()
+	fire_ball.global_position = global_position + OFFSET
+	get_tree().current_scene.add_child(fire_ball)
 
 func enemy_hit(enemy: Node2D, side: int) -> void:
 	# Base damage plus burn effect

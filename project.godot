@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 [autoload]
 
 Utils="*res://Others/Scripts/utils.gd"
+AugmentData="*res://Others/Scripts/augment_data.gd"
 
 [file_customization]
 
