@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://dsinvnicbplgj"]
+[gd_scene load_steps=10 format=4 uid="uid://dsinvnicbplgj"]
 
 [ext_resource type="Texture2D" uid="uid://bib5iebf6qbyw" path="res://Maps/_Sprites/scene.png" id="1_50ct6"]
 [ext_resource type="PackedScene" uid="uid://x7xsw31c1i1" path="res://UI/ui.tscn" id="3_50ct6"]
 [ext_resource type="PackedScene" uid="uid://25353ph5q621" path="res://Player/Scenes/player.tscn" id="3_ak5v8"]
 [ext_resource type="PackedScene" uid="uid://ddp2hy2lrxgq1" path="res://Enemies/FireMage/fire_mage.tscn" id="4_ak5v8"]
 [ext_resource type="PackedScene" uid="uid://cu1fhkvlsquug" path="res://Props/FireCamp/firecamp.tscn" id="5_x033f"]
+[ext_resource type="PackedScene" uid="uid://cnbryt137fse1" path="res://Props/portal.tscn" id="6_33ndr"]
+[ext_resource type="PackedScene" uid="uid://ywc3g1b3pcle" path="res://Maps/Test/test_scene.tscn" id="7_nuysx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x033f"]
 texture = ExtResource("1_50ct6")
@@ -56,3 +58,7 @@ position = Vector2(382, 0)
 
 [node name="Firecamp" parent="." instance=ExtResource("5_x033f")]
 position = Vector2(613, -48)
+
+[node name="Portal" parent="." instance=ExtResource("6_33ndr")]
+position = Vector2(660, -62)
+loaded_scene = ExtResource("7_nuysx")
