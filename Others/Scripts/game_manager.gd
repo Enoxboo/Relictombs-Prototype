@@ -23,3 +23,5 @@ func tag():
 	
 	players[0].is_active = !players[0].is_active
 	players[1].is_active = !players[1].is_active
+	print(players[0].is_active)
+	print(players[1].is_active)

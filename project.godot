@@ -22,6 +22,7 @@ AugmentData="*res://Others/Scripts/augment_data.gd"
 [file_customization]
 
 folder_colors={
+"res://Assist/": "pink",
 "res://Enemies/": "red",
 "res://Maps/": "yellow",
 "res://Others/": "gray",

@@ -24,17 +24,18 @@ var is_active: bool = false
 
 # === NODE REFERENCES ===
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var hitbox: Area2D = $Sword
-@onready var collision_shape: CollisionShape2D = $Sword/CollisionShape2D
-@onready var hitbox_sprite: Sprite2D = $Sword/CollisionShape2D/HitboxSprite
+@onready var hitbox: Area2D = get_node_or_null("Sword")
+@onready var collision_shape: CollisionShape2D = get_node_or_null("Sword/CollisionShape2D")
+@onready var hitbox_sprite: Sprite2D = get_node_or_null("Sword/CollisionShape2D/HitboxSprite")
 @onready var hurtbox: Area2D = $Hurtbox
-@onready var elements: Node2D = $Elements
+@onready var elements: Node2D = get_node_or_null("Elements")
 
 # === INITIALIZATION ===
 func _ready() -> void:
 	health = max_health
-	hitbox.monitoring = false
-	hitbox_sprite.visible = false
+	if hitbox:
+		hitbox.monitoring = false
+		hitbox_sprite.visible = false
 
 # === MAIN PHYSICS LOOP ===
 func _physics_process(delta: float) -> void:
