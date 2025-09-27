@@ -36,6 +36,8 @@ func _ready() -> void:
 	if hitbox:
 		hitbox.monitoring = false
 		hitbox_sprite.visible = false
+	if is_active == false:
+		process_mode = Node.PROCESS_MODE_DISABLED
 
 # === MAIN PHYSICS LOOP ===
 func _physics_process(delta: float) -> void:
@@ -84,3 +86,10 @@ func take_damage(damage: int) -> void:
 
 func heal(heal_amount: int) -> void:
 	health = move_toward(health, max_health, heal_amount)
+
+
+func _on_tag_signal(active_player: Player) -> void:
+	if self == active_player:
+		process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		process_mode = Node.PROCESS_MODE_DISABLED

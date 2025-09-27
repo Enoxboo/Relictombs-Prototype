@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgxa"]
 
 [node name="BasePlayer" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_uepi5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
