@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://qtgmrirkphkj"]
+
+[ext_resource type="Script" uid="uid://r5uo3yb6nujt" path="res://Player/Scripts/player.gd" id="1_uepi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf2nn"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgxa"]
+
+[node name="BasePlayer" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_uepi5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_nf2nn")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_fsgxa")

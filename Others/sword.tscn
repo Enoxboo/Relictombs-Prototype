@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cod708t7ob1yj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wriw"]
+
+[node name="Sword" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_3wriw")
+debug_color = Color(0.7, 0, 0, 0.419608)
+
+[node name="HitboxSprite" type="Sprite2D" parent="CollisionShape2D"]
