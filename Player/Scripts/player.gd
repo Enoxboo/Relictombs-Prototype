@@ -20,6 +20,7 @@ var can_attack: bool = true
 var can_dash: bool = true
 var is_invulnerable: bool = false
 var is_dashing: bool = false
+var is_active: bool = false
 
 # === NODE REFERENCES ===
 @onready var sprite: Sprite2D = $Sprite2D

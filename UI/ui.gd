@@ -2,7 +2,7 @@ extends CanvasLayer
 
 # === NODE REFERENCES ===
 @onready var hp_bar: TextureProgressBar = $HpBar
-@onready var player: CharacterBody2D = %Player
+@onready var player: Player
 @onready var texture_rect: TextureRect = $TextureRect
 
 # === ELEMENT WHEEL TEXTURES ===
@@ -16,6 +16,7 @@ var element_textures = {
 
 # === INITIALIZATION ===
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	player.elements.connect("element_changed", _on_element_changed)
 
 # === UI UPDATES ===

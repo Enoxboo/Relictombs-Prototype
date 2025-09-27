@@ -1,0 +1,21 @@
+extends Node2D
+
+var players: Array[Player]
+
+func _ready() -> void:
+	var all_players = get_tree().get_nodes_in_group("player")
+	for player in all_players:
+		if player is Player:
+			players.append(player)
+	print(players)
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("tag"):
+		tag()
+
+func tag():
+	if players.size() <= 1:
+		return
+	
+	players[0].is_active = !players[0].is_active
+	players[1].is_active = !players[1].is_active
